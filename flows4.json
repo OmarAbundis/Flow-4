@@ -122,14 +122,61 @@
         "statusVal": "",
         "statusType": "auto",
         "x": 610,
-        "y": 280,
+        "y": 160,
+        "wires": []
+    },
+    {
+        "id": "882a8a559068f3bc",
+        "type": "inject",
+        "z": "8d83174e6bc063ed",
+        "name": "",
+        "props": [
+            {
+                "p": "payload"
+            },
+            {
+                "p": "topic",
+                "vt": "str"
+            }
+        ],
+        "repeat": "",
+        "crontab": "",
+        "once": false,
+        "onceDelay": 0.1,
+        "topic": "",
+        "payload": "{\"id\":\"Omar_Abundis\",\"temp\":25.6}",
+        "payloadType": "json",
+        "x": 90,
+        "y": 340,
+        "wires": [
+            [
+                "d0435d9cce545dec"
+            ]
+        ]
+    },
+    {
+        "id": "d0435d9cce545dec",
+        "type": "mqtt out",
+        "z": "8d83174e6bc063ed",
+        "name": "",
+        "topic": "codigoIoT/g7/mosquitto/msg",
+        "qos": "",
+        "retain": "",
+        "respTopic": "",
+        "contentType": "",
+        "userProps": "",
+        "correl": "",
+        "expiry": "",
+        "broker": "daa0e3675e01bb90",
+        "x": 440,
+        "y": 340,
         "wires": []
     },
     {
         "id": "e35d23e5bdd3e3e1",
         "type": "mqtt-broker",
         "name": "Broker Hivel MQ G7",
-        "broker": "35.157.61.99",
+        "broker": "18.156.8.172",
         "port": "1883",
         "clientid": "",
         "autoConnect": true,
@@ -161,6 +208,32 @@
         "width": "6",
         "collapse": false,
         "className": ""
+    },
+    {
+        "id": "daa0e3675e01bb90",
+        "type": "mqtt-broker",
+        "name": "broker.hivemq.com",
+        "broker": "18.156.8.172",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
     },
     {
         "id": "bd7a8a645cf4ea63",
