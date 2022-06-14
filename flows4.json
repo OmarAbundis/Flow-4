@@ -1,0 +1,173 @@
+[
+    {
+        "id": "8d83174e6bc063ed",
+        "type": "tab",
+        "label": "Flow 4",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "7118a67e811cd29e",
+        "type": "json",
+        "z": "8d83174e6bc063ed",
+        "name": "Conversor a JSON",
+        "property": "payload",
+        "action": "obj",
+        "pretty": false,
+        "x": 390,
+        "y": 100,
+        "wires": [
+            [
+                "09f3a580364fb863",
+                "40f44338bcd9dff2"
+            ]
+        ]
+    },
+    {
+        "id": "09f3a580364fb863",
+        "type": "function",
+        "z": "8d83174e6bc063ed",
+        "name": "Temperatura",
+        "func": "msg.topic = msg.payload.id;\nmsg.payload = msg.payload.temp;\nreturn msg;",
+        "outputs": 1,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 610,
+        "y": 100,
+        "wires": [
+            [
+                "3f048423318ed425"
+            ]
+        ]
+    },
+    {
+        "id": "5457cdf202acc9f3",
+        "type": "mqtt in",
+        "z": "8d83174e6bc063ed",
+        "name": "",
+        "topic": "codigoIoT/g7/mosquitto/msg",
+        "qos": "2",
+        "datatype": "auto",
+        "broker": "e35d23e5bdd3e3e1",
+        "nl": false,
+        "rap": true,
+        "rh": 0,
+        "inputs": 0,
+        "x": 140,
+        "y": 100,
+        "wires": [
+            [
+                "7118a67e811cd29e"
+            ]
+        ]
+    },
+    {
+        "id": "3f048423318ed425",
+        "type": "ui_chart",
+        "z": "8d83174e6bc063ed",
+        "name": "",
+        "group": "464be429e1d22d40",
+        "order": 0,
+        "width": 0,
+        "height": 0,
+        "label": "Temperatura de los alumnos",
+        "chartType": "line",
+        "legend": "false",
+        "xformat": "HH:mm:ss",
+        "interpolate": "linear",
+        "nodata": "",
+        "dot": false,
+        "ymin": "0",
+        "ymax": "55",
+        "removeOlder": "10",
+        "removeOlderPoints": "",
+        "removeOlderUnit": "60",
+        "cutout": 0,
+        "useOneColor": false,
+        "useUTC": false,
+        "colors": [
+            "#1f77b4",
+            "#aec7e8",
+            "#ff7f0e",
+            "#2ca02c",
+            "#98df8a",
+            "#d62728",
+            "#ff9896",
+            "#9467bd",
+            "#c5b0d5"
+        ],
+        "outputs": 1,
+        "useDifferentColor": false,
+        "className": "",
+        "x": 900,
+        "y": 100,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "40f44338bcd9dff2",
+        "type": "debug",
+        "z": "8d83174e6bc063ed",
+        "name": "",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "true",
+        "targetType": "full",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 610,
+        "y": 280,
+        "wires": []
+    },
+    {
+        "id": "e35d23e5bdd3e3e1",
+        "type": "mqtt-broker",
+        "name": "Broker Hivel MQ G7",
+        "broker": "35.157.61.99",
+        "port": "1883",
+        "clientid": "",
+        "autoConnect": true,
+        "usetls": false,
+        "protocolVersion": "4",
+        "keepalive": "60",
+        "cleansession": true,
+        "birthTopic": "",
+        "birthQos": "0",
+        "birthPayload": "",
+        "birthMsg": {},
+        "closeTopic": "",
+        "closeQos": "0",
+        "closePayload": "",
+        "closeMsg": {},
+        "willTopic": "",
+        "willQos": "0",
+        "willPayload": "",
+        "willMsg": {},
+        "sessionExpiry": ""
+    },
+    {
+        "id": "464be429e1d22d40",
+        "type": "ui_group",
+        "name": "Group 1",
+        "tab": "bd7a8a645cf4ea63",
+        "order": 1,
+        "disp": true,
+        "width": "6",
+        "collapse": false,
+        "className": ""
+    },
+    {
+        "id": "bd7a8a645cf4ea63",
+        "type": "ui_tab",
+        "name": "Flow 5",
+        "icon": "dashboard",
+        "disabled": false,
+        "hidden": false
+    }
+]
